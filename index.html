@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Kitty 🐱 | From Omkar</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(120deg, #ffd1dc, #ff9aa2);
+    overflow: hidden;
+}
+
+audio {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.slider {
+    display: flex;
+    width: 800%;
+    height: 100vh;
+    transition: transform 1.2s ease-in-out;
+}
+
+.slide {
+    width: 100%;
+    flex-shrink: 0;
+    padding: 30px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    background: rgba(255,255,255,0.95);
+    border-radius: 25px;
+    padding: 35px;
+    max-width: 750px;
+    text-align: center;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+h1 {
+    color: #e6005c;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.controls {
+    position: fixed;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+button {
+    background: #ff5a7a;
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    margin: 0 8px;
+}
+
+button:hover {
+    background: #e6005c;
+}
+
+.firework {
+    position: fixed;
+    font-size: 26px;
+    animation: blast 2s linear forwards;
+}
+
+@keyframes blast {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-300px) scale(2); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🎵 MUSIC -->
+<audio autoplay loop controls>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div class="slider" id="slider">
+
+<!-- Slide 1 -->
+<div class="slide">
+<div class="card">
+<h1>🐱 Happy New Year Kitty 🎉</h1>
+<p>
+It’s been a month of calls, smiles, and those tiny pauses  
+when your soothing voice makes the world go quiet ✨
+</p>
+<p>
+On this first dawn of the year 🌅  
+I want to tell you something my heart  
+has been balancing like a perfect ledger.
+</p>
+</div>
+</div>
+
+<!-- Slide 2 -->
+<div class="slide">
+<div class="card">
+<h1>💖 You</h1>
+<p>
+I really like you 🐾  
+I love the way you love cats 🐱  
+the calm in your eyes that feels like home 🏡
+</p>
+<p>
+And the way your guitar 🎸  
+turns silence into stories.
+</p>
+</div>
+</div>
+
+<!-- Slide 3 -->
+<div class="slide">
+<div class="card">
+<h1>📚 CA Life</h1>
+<p>
+As two CA students,  
+we live in audits, ledgers, deadlines 📊
+</p>
+<p>
+But somewhere between trial balance  
+and tax provisions,  
+my feelings found their  
+<b>true and fair view</b> 🐱
+</p>
+</div>
+</div>
+
+<!-- Slide 4 -->
+<div class="slide">
+<div class="card">
+<h1>📈 My Balance Sheet</h1>
+<p>
+You’re my going concern 💕  
+the asset I never want to depreciate.
+</p>
+<p>
+Your smile is my intangible asset  
+with infinite value ✨
+</p>
+<p>
+No window dressing —  
+only honest disclosures of my heart 🐾
+</p>
+</div>
+</div>
+
+<!-- Slide 5 -->
+<div class="slide">
+<div class="card">
+<h1>❤️ Final Entry</h1>
+<p>
+No creative accounting 📘  
+just clean notes.
+</p>
+<p>
+My debit is your warmth,  
+my credit is your laughter 😄
+</p>
+<h1>I LOVE YOU 🐱❤️</h1>
+</div>
+</div>
+
+<!-- Slide 6 -->
+<div class="slide">
+<div class="card">
+<h1>📊 Proposal Time</h1>
+<p>
+If love were an accounting standard,
+would you let me comply for life? 🐱
+</p>
+<p>
+Will you be my girlfriend? 💖
+</p>
+<button onclick="yes()">YES 🐾</button>
+<button onclick="no()">NO 😿</button>
+</div>
+</div>
+
+<!-- Slide 7 -->
+<div class="slide" id="yesSlide">
+<div class="card">
+<h1>🎆 YAYYY 🐱❤️</h1>
+<p>
+Assets increased.  
+Liabilities vanished.
+</p>
+<p>
+Together return filed under <b>LIFETIME</b> 💞  
+No capital gains — only compounded happiness.
+</p>
+<p>
+Thank you for choosing me, Kitty 🐾
+</p>
+</div>
+</div>
+
+<!-- Slide 8 -->
+<div class="slide" id="noSlide">
+<div class="card">
+<h1>😿 Oh no…</h1>
+<p>
+This cat is crying… 🐱💔  
+but still respecting your choice.
+</p>
+<p>
+You’ll always be special 🌸
+</p>
+</div>
+</div>
+
+</div>
+
+<div class="controls">
+<button onclick="prev()">⬅ Prev</button>
+<button onclick="next()">Next ➡</button>
+</div>
+
+<script>
+let index = 0;
+function updateSlide() {
+    document.getElementById("slider").style.transform =
+        "translateX(-" + index * 100 + "%)";
+    if(index === 4 || index === 6){
+        crackers();
+    }
+}
+
+function next() {
+    if (index < 7) index++;
+    updateSlide();
+}
+function prev() {
+    if (index > 0) index--;
+    updateSlide();
+}
+
+function crackers() {
+    for(let i=0;i<20;i++){
+        let f = document.createElement("div");
+        f.className = "firework";
+        f.innerHTML = "🎆";
+        f.style.left = Math.random()*100 + "vw";
+        f.style.bottom = "0px";
+        document.body.appendChild(f);
+        setTimeout(()=>f.remove(),2000);
+    }
+}
+
+function yes(){
+    index = 6;
+    updateSlide();
+}
+function no(){
+    index = 7;
+    updateSlide();
+}
+</script>
+
+</body>
+</html>
