@@ -1,357 +1,267 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Happy New Year, Kitty — From Omkar</title>
-  <style>
-    :root {
-      --bg: #0f0f14;
-      --card: #171721;
-      --text: #f7f7fb;
-      --accent: #ff5678;
-      --gold: #ffd166;
-      --rose: #e11d48;
-      --mint: #94d2bd;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
-      background: radial-gradient(1200px 700px at 70% -10%, #2b2b3f, #0f0f14);
-      color: var(--text);
-      line-height: 1.65;
-    }
-    header {
-      text-align: center;
-      padding: 60px 20px 30px;
-    }
-    h1 {
-      font-size: 2.6rem;
-      margin: 0 0 12px;
-      color: var(--gold);
-      letter-spacing: 0.5px;
-    }
-    .subtitle {
-      font-size: 1.05rem;
-      color: #d9d9e9;
-    }
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 0 16px 80px;
-    }
-    section {
-      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.0));
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 16px;
-      padding: 24px;
-      margin: 18px 0;
-      backdrop-filter: blur(4px);
-    }
-    h2 {
-      margin: 0 0 10px;
-      font-size: 1.6rem;
-      color: var(--accent);
-    }
-    p { margin: 10px 0; }
-    .rose-strip {
-      display: flex; 
-      gap: 10px; 
-      flex-wrap: wrap; 
-      justify-content: center; 
-      padding: 10px 0 6px;
-    }
-    .rose {
-      font-size: 26px;
-      animation: float 4s ease-in-out infinite;
-      filter: drop-shadow(0 2px 4px rgba(255,86,120,0.35));
-    }
-    .rose:nth-child(odd) { animation-delay: 0.5s; }
-    .rose:nth-child(3n) { animation-delay: 1s; }
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-6px); }
-    }
-    .card {
-      background: var(--card);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 14px;
-      padding: 18px;
-      margin: 14px 0;
-    }
-    .btnbar {
-      display: flex; 
-      gap: 12px; 
-      flex-wrap: wrap;
-      margin: 12px 0 4px;
-    }
-    button {
-      background: var(--accent);
-      color: #fff;
-      border: none;
-      border-radius: 999px;
-      padding: 10px 16px;
-      font-size: 0.95rem;
-      cursor: pointer;
-      transition: transform 0.08s ease, box-shadow 0.2s ease;
-      box-shadow: 0 8px 18px rgba(255, 86, 120, 0.35);
-    }
-    button:hover { transform: translateY(-1px); }
-    .memes {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 14px;
-      margin-top: 14px;
-    }
-    .meme {
-      background: var(--card);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 12px;
-      overflow: hidden;
-    }
-    .meme img {
-      display: block;
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      background: #222334;
-    }
-    .meme .cap {
-      padding: 10px 12px;
-      font-size: 0.95rem;
-      color: #eaeaf7;
-    }
-    .letter {
-      font-size: 1.06rem;
-      color: #f5f5ff;
-      letter-spacing: 0.1px;
-    }
-    .shine {
-      background: linear-gradient(90deg, rgba(255, 209, 102, 0.2), rgba(255, 86, 120,0.2));
-      border-radius: 12px;
-      padding: 10px 14px;
-    }
-    .final {
-      text-align: center;
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: var(--mint);
-      margin: 24px 0 10px;
-      text-shadow: 0 4px 14px rgba(148, 210, 189, 0.25);
-    }
-    .note {
-      background: rgba(148, 210, 189, 0.1);
-      border: 1px solid rgba(148, 210, 189, 0.25);
-      border-radius: 12px;
-      padding: 12px 14px;
-      margin-top: 8px;
-    }
-    .puku {
-      display: grid;
-      grid-template-columns: 120px 1fr;
-      gap: 12px;
-      align-items: center;
-    }
-    .puku img {
-      width: 100%;
-      height: 120px;
-      object-fit: cover;
-      border-radius: 10px;
-      border: 2px solid rgba(255,255,255,0.15);
-    }
-    footer {
-      text-align: center;
-      color: #bdbdde;
-      padding: 24px 16px 46px;
-      font-size: 0.95rem;
-    }
-    .credits { font-size: 0.85rem; color: #a9a9c9; }
-    .divider { height: 1px; background: rgba(255,255,255,0.08); margin: 12px 0; }
-  </style>
+<meta charset="UTF-8">
+<title>Kitty 🐱 | From Omkar</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(120deg, #ffd1dc, #ff9aa2);
+    overflow: hidden;
+}
+
+.slider {
+    display: flex;
+    width: 700%;
+    height: 100vh;
+    transition: transform 1s ease;
+}
+
+.slide {
+    width: 100%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.card {
+    background: rgba(255,255,255,0.95);
+    border-radius: 25px;
+    padding: 35px;
+    max-width: 750px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+h1 {
+    color: #e6005c;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.controls {
+    position: fixed;
+    bottom: 15px;
+    width: 100%;
+    text-align: center;
+}
+
+button {
+    background: #ff5a7a;
+    border: none;
+    color: white;
+    padding: 12px 22px;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    margin: 0 8px;
+}
+
+button:hover {
+    background: #e6005c;
+}
+
+.firework {
+    position: fixed;
+    font-size: 28px;
+    animation: explode 2s linear forwards;
+}
+
+@keyframes explode {
+    0% { transform: scale(0); opacity: 1; }
+    100% { transform: scale(2.5); opacity: 0; }
+}
+</style>
 </head>
+
 <body>
-  <header>
-    <h1>Happy New Year, Kitty ✨</h1>
-    <div class="subtitle">01 January, with all my heart — from Omkar</div>
-    <div class="rose-strip" aria-hidden="true">
-      <span class="rose">🌹</span><span class="rose">🌹</span><span class="rose">🌹</span><span class="rose">🌹</span><span class="rose">🌹</span>
-      <span class="rose">🌹</span><span class="rose">🌹</span><span class="rose">🌹</span>
-    </div>
-  </header>
 
-  <div class="container">
-    <section id="music">
-      <h2>A gentle tune for you</h2>
-      <p>Press play to hear a soft guitar-style progression as you read. It’s my little soundtrack for us.</p>
-      <div class="btnbar">
-        <button id="playBtn">Play music</button>
-        <button id="stopBtn" style="background:#41416f; box-shadow:none;">Stop</button>
-      </div>
-      <div class="credits">No downloads needed — generated with love using your browser.</div>
-    </section>
+<div class="slider" id="slider">
 
-    <section id="proposal">
-      <h2>From Omkar to Suhana (my Kitty)</h2>
-      <div class="card">
-        <p>
-          Kitty, it’s been a month of calls, smiles, and those tiny pauses when your soothing voice makes the world go quiet.
-          Today — the first dawn of the year — I want to say what my heart has been balancing like a perfect ledger: I really like you. I love the way you love cats, the way your eyes carry a calm that feels like home, and the way your guitar turns silence into stories.
-        </p>
-        <p>
-          As two CA students, we live in audits, ledgers, and deadlines — but somewhere between trial balance and tax provisions,
-          my feelings found their true and fair view. You’re my going concern, the asset I never want to depreciate. In the balance sheet of life, your smile is my intangible with infinite value, and I promise zero window dressing — only honest disclosures of the heart.
-        </p>
-        <p>
-          If love had standards, I’d comply with all — no creative accounting, just clean notes. My debit is your warmth, my credit is your laughter, and every day ends reconciled when you’re part of the entry. Let’s file our “together return” under lifetime; no capital gains, only compounded joy. And yes, I’ll audit your coffee, review your playlists, and sign off with an unqualified opinion, every single day.
-        </p>
-      </div>
-    </section>
+<!-- SLIDE 1 -->
+<div class="slide">
+<div class="card">
+<h1>🐱 Kitty</h1>
+<p>
+It’s been a month of calls, smiles, and those tiny pauses  
+when your soothing voice makes the world go quiet 🌙
+</p>
+<p>
+On the first dawn of the year 🌅  
+my heart wants to speak.
+</p>
+</div>
+</div>
 
-    <section id="letter">
-      <div class="letter shine">
-        <p>
-          Suhana, ek januwari ki subah hai, hawa mein nayi umeedein hain, aur mere dil mein tum. Jab tumhari awaaz phone par halki si muskurahat ke saath aati hai, lagta hai jaise duniya ki saari ghoomtaani ruk gayi ho. Tumhari aankhen — bilkul jannat ki dehleez — jahan thodi si roshni bas jaati hai aur har gham dissolve ho jaata hai. Main Omkar, ek seedha-sa ladka, tumhari har chhoti baat mein apni badi khushi dhoondh leta hoon.
-        </p>
-        <p>
-          Jaise SRK ke baare mein kehte hain, “dil se jab koi baat nikalti hai, toh duniya ko rasta mil jaata hai,” waise hi main aaj dil se bol raha hoon: mujhe tum pasand ho, bahut. Tumhari guitar ke suron mein meri raaton ka sukoon hai, aur tumhare kattus pyaar mein meri muskurahat. CA ke sare audits, tax dates, provisions — sab theek ho jaate hain jab tumhari yaad aati hai. Tum meri kahani ka hero moment ho, jahan camera slow motion mein sirf tumhe dekh raha hota hai.
-        </p>
-        <p>
-          Bas itna samajh lo, mera har saal, har mahina, har din tumhare saath ek naya scene likhna chahta hai — bina kisi retake, bina kisi mask. Agar tum haan kaho, toh main zindagi bhar tumhara honest balance sheet bankar rahunga. Aur agar kabhi tumhari aankhon mein aansu aaye, toh mera kandha hamesha wahi hoga — filmy par sachcha. Yeh Omkar ka wada hai, dil se, tumhare liye.
-        </p>
-      </div>
-    </section>
+<!-- SLIDE 2 -->
+<div class="slide">
+<div class="card">
+<h1>💖 What I Feel</h1>
+<p>
+I really like you 🐾  
+I love the way you love cats 🐱  
+the calm in your eyes that feels like home 🏡
+</p>
+<p>
+And your guitar 🎸  
+turning silence into stories.
+</p>
+</div>
+</div>
 
-    <section id="memes">
-      <h2>for my  queen</h2>
-      <div class="memes">
-        <div class="meme">
-          <img src="https://via.placeholder.com/500x350?text=CA+Life+Meme+1" alt="CA meme — Coffee is capital, sleep is expense" />
-          <div class="cap">“Coffee is capital, sleep is expense — still, ROI on your smile is infinite.”</div>
-        </div>
-        <div class="meme">
-          <div class="cap">“Trial balance: matched. Feelings: unmatched… until Kitty enters the ledger.”</div>
-        </div>
-        <div class="meme">
-          <div class="cap">“GST on love? 0%. But the input credit of your hugs is full set-off.”</div>
-        </div>
-        <div class="meme">
-          <div class="cap">“Auditor’s report on us: Unqualified opinion — true and fair forever.”</div>
-        </div>
-      </div>
-      <div class="card">
-          • Tum meri going concern ho — bina tumhare, meri operations band ho jayein.<br/>
-          • Matching principle says: mere efforts = tumhari khushi, har period mein.<br/>
-          • Love ledger: Debit — hugs from Kitty; Credit — Omkar’s smiles (always balanced).<br/>
-          • Statutory audit of my heart: no qualifications, only clean disclosure — “I’m into you.”<br/>
-          • Cash flow from love: operating strongly, investing in future, financing with forever.
-        </p>
-      </div>
-    </section>
+<!-- SLIDE 3 -->
+<div class="slide">
+<div class="card">
+<h1>📚 CA Life</h1>
+<p>
+Between audits, ledgers, deadlines 📊  
+somewhere between trial balance  
+and tax provisions —
+</p>
+<p>
+My feelings found their  
+<b>true & fair view</b> 🐱
+</p>
+</div>
+</div>
 
-    <section id="roses">
-      <h2>Roses for the girl who loves cats</h2>
-      <p>For every purr, a petal. For every chord, a bloom. For every glance, a garden.</p>
-      <div class="rose-strip" aria-hidden="true">
-        <span class="rose">🌹</span><span class="rose">🌹</span><span class="rose">🌹</span><span class="rose">🌹</span><span class="rose">🌹</span>
-        <span class="rose">🌹</span><span class="rose">🌹</span><span class="rose">🌹</span><span class="rose">🌹</span><span class="rose">🌹</span>
-      </div>
-    </section>
+<!-- SLIDE 4 -->
+<div class="slide">
+<div class="card">
+<h1>📈 Balance Sheet of My Heart</h1>
+<p>
+You’re my going concern 💕  
+the asset I never want to depreciate.
+</p>
+<p>
+Your smile is my intangible asset  
+with infinite value ✨
+</p>
+<p>
+No window dressing —  
+only honest disclosures 🐾
+</p>
+</div>
+</div>
 
-    <section id="final">
-      <h2>My answer sheet of the heart</h2>
-      <p class="final">I love you, Kitty. Truly, deeply, filmy-fully.</p>
-      <div class="divider"></div>
-      <div class="note">
-        <h3 style="margin:6px 0 8px; color:#c3f0e8; font-size:1.2rem;">From Puku, your sweet devar</h3>
-        <div class="puku">
-          <img src="https://via.placeholder.com/300x300?text=Puku" alt="Puku's photo placeholder" />
-          <div>
-            <p>
-              Dear Kitty Bhabhi, mera naam Puku hai. Mujhe aapki muskurahat bilkul pasand aayi — bilkul meri favorite toffee jaisi.
-              Bhai (Omkar) ke saath aap bohot achchi lagti ho. Aap jab guitar bajati ho, main dance karunga! Aap hamesha khush raho,
-              aur hum sab milke bohot saare fun moments banayein. Happy New Year, Bhabhi! Lots of love from Puku.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+<!-- SLIDE 5 : I LOVE YOU -->
+<div class="slide">
+<div class="card">
+<h1>❤️ Kitty</h1>
+<h1 style="font-size:42px;">I LOVE YOU 💖</h1>
+<p>
+No creative accounting.  
+Only clean notes and true feelings.
+</p>
+</div>
+</div>
 
-    <footer>
-      Made with care by Omkar — for Suhana (Kitty). If you smiled even once, my new year is complete.
-    </footer>
-  </div>
+<!-- SLIDE 6 : QUESTION -->
+<div class="slide">
+<div class="card">
+<h1>📊 Important Question</h1>
+<p>
+If love was an entry —
+</p>
+<p>
+<b>Debit:</b> My heart ❤️  
+<b>Credit:</b> Your smile 😄
+</p>
+<p>
+Final balance?
+</p>
+<h1>Will you be my girlfriend? 🐱💞</h1>
 
-  <script>
-    // Gentle guitar-style progression using WebAudio API (no external files)
-    let audioCtx;
-    let playing = false;
-    const chords = [
-      // [frequency, duration seconds, gain]
-      [196.00, 2.6, 0.12], // G3
-      [246.94, 2.6, 0.12], // B3
-      [329.63, 2.6, 0.10], // E4
-      [440.00, 2.6, 0.08], // A4 (soft lead)
-      [220.00, 2.6, 0.12], // A3
-      [277.18, 2.6, 0.12], // C#4
-      [349.23, 2.6, 0.10], // F4
-      [466.16, 2.6, 0.08], // Bb4
-    ];
+<button onclick="yesAnswer()">YES ✔</button>
+<button onclick="noAnswer()">NO ❌</button>
+</div>
+</div>
 
-    function playChord(freq, duration, gainLevel, startTime) {
-      const osc = audioCtx.createOscillator();
-      const gain = audioCtx.createGain();
-      const lfo = audioCtx.createOscillator(); // slight vibrato for a guitar feel
-      const lfoGain = audioCtx.createGain();
+<!-- SLIDE 7 : RESULT -->
+<div class="slide">
+<div class="card" id="resultCard">
+<h1>🐱</h1>
+<p>Waiting for your answer…</p>
+</div>
+</div>
 
-      osc.type = "triangle";
-      osc.frequency.value = freq;
+</div>
 
-      gain.gain.setValueAtTime(0, startTime);
-      gain.gain.linearRampToValueAtTime(gainLevel, startTime + 0.3);
-      gain.gain.exponentialRampToValueAtTime(0.0001, startTime + duration);
+<div class="controls">
+<button onclick="prev()">⬅ Prev</button>
+<button onclick="next()">Next ➡</button>
+</div>
 
-      lfo.frequency.value = 5.2;
-      lfoGain.gain.value = 4.0;
-      lfo.connect(lfoGain);
-      lfoGain.connect(osc.frequency);
+<script>
+let index = 0;
+const slider = document.getElementById("slider");
 
-      osc.connect(gain);
-      gain.connect(audioCtx.destination);
+function updateSlide() {
+    slider.style.transform = "translateX(-" + index * 100 + "%)";
+}
 
-      osc.start(startTime);
-      lfo.start(startTime);
-      osc.stop(startTime + duration + 0.05);
-      lfo.stop(startTime + duration + 0.05);
+function next() {
+    if (index < 6) index++;
+    updateSlide();
+}
+
+function prev() {
+    if (index > 0) index--;
+    updateSlide();
+}
+
+function fireworks(count = 25) {
+    for (let i = 0; i < count; i++) {
+        let fw = document.createElement("div");
+        fw.className = "firework";
+        fw.innerHTML = "🎆";
+        fw.style.left = Math.random() * 100 + "vw";
+        fw.style.top = Math.random() * 100 + "vh";
+        document.body.appendChild(fw);
+        setTimeout(() => fw.remove(), 2000);
     }
+}
 
-    function startMusic() {
-      if (playing) return;
-      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      playing = true;
-      const now = audioCtx.currentTime;
-      let t = now + 0.1;
+function yesAnswer() {
+    index = 6;
+    updateSlide();
+    fireworks(40);
+    document.getElementById("resultCard").innerHTML = `
+        <h1>🎉 SHE SAID YES 🎉</h1>
+        <p>
+        Assets increased 💹<br>
+        Liabilities zeroed ❌<br><br>
+        Kitty, you just became<br>
+        my favorite lifetime entry 🐱💖
+        </p>
+        <h1>I’m so happy 💞</h1>
+    `;
+}
 
-      // Play a soft progression twice
-      for (let loop = 0; loop < 2; loop++) {
-        chords.forEach(([f, d, g], i) => {
-          // Layer 3 notes per chord for a fuller harmony
-          playChord(f, d, g, t);
-          playChord(f * 2, d, g * 0.5, t + 0.02);
-          playChord(f * 1.5, d, g * 0.35, t + 0.04);
-          t += d - 0.8;
-        });
-      }
-    }
+function noAnswer() {
+    index = 6;
+    updateSlide();
+    document.getElementById("resultCard").innerHTML = `
+        <h1>😿😿😿</h1>
+        <p>
+        This cat is sad…<br>
+        but still respects you 🐱<br><br>
+        Thank you for your honesty 💛
+        </p>
+    `;
+}
+</script>
 
-    function stopMusic() {
-      if (!playing) return;
-      audioCtx && audioCtx.close();
-      playing = false;
-    }
-
-    document.getElementById("playBtn").addEventListener("click", startMusic);
-    document.getElementById("stopBtn").addEventListener("click", stopMusic);
-  </script>
 </body>
 </html>
