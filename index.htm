@@ -6,7 +6,8 @@
 <style>
   body, html {
     margin:0; padding:0; height:100%; width:100%;
-    background:#0f0f14; color:#fff; font-family: 'Segoe UI', sans-serif;
+    background: radial-gradient(circle at top left, #ffdee9, #ffc0cb, #ffb6c1);
+    color:#fff; font-family: 'Segoe UI', sans-serif;
     overflow:hidden;
   }
   .slide {
@@ -31,50 +32,98 @@
   }
   @keyframes typing { from { width:0 } to { width:100% } }
   @keyframes blink { 50% { border-color:transparent } }
+  button {
+    margin-top:20px; padding:12px 20px; border:none; border-radius:8px;
+    background:#ff5678; color:#fff; font-size:1rem; cursor:pointer;
+  }
   .fireworks { position:absolute; top:0; left:0; width:100%; height:100%; display:none; }
   canvas { position:absolute; top:0; left:0; }
-  .proposal { display:none; flex-direction:column; align-items:center; justify-content:center; height:100%; width:100%; background:#111; }
-  .proposal img { width:250px; border-radius:12px; }
   h1 { font-size:2rem; margin-top:20px; color:#ff5678; }
+  img.gif { width:200px; margin-top:20px; border-radius:12px; }
 </style>
 </head>
 <body>
 
-<!-- Floating roses -->
+<!-- Infinite roses -->
 <div class="roses">
-  <span style="left:10%;top:20%;">🌹</span>
-  <span style="left:80%;top:30%;">🌹</span>
-  <span style="left:50%;top:70%;">🌹</span>
-  <span style="left:30%;top:50%;">🌹</span>
+  <script>
+    for(let i=0;i<40;i++){
+      document.write('<span style="left:'+Math.random()*100+'%;top:'+Math.random()*100+'%;">🌹</span>');
+    }
+  </script>
 </div>
 
 <!-- Slides -->
-<div class="slide active"><div class="typing">Kitty... every ledger balances when you smile 💖</div></div>
-<div class="slide"><div class="typing">In the audit of my heart, you’re the only true & fair view 🌹</div></div>
-<div class="slide"><div class="typing">Your voice is music, your eyes are heaven... I’m lost in them 🎶</div></div>
-<div class="slide"><div class="typing">As two CA students, between trial balance and tax provisions, my feelings found their true and fair view.</div></div>
-<div class="slide"><div class="typing">You’re my going concern, the asset I never want to depreciate. In the balance sheet of life, your smile is my intangible with infinite value.</div></div>
-<div class="slide"><div class="typing">Suhaana, ek januwari ki subah hai, hawa mein nayi umeedein hain, aur mere dil mein tum...</div></div>
-<div class="slide"><div class="typing">Tumhari guitar ke suron mein meri raaton ka sukoon hai, aur tumhare kattus pyaar mein meri muskurahat.</div></div>
-<div class="slide"><div class="typing">Bas itna samajh lo, mera har saal, har mahina, har din tumhare saath ek naya scene likhna chahta hai.</div></div>
-<div class="slide"><div class="typing">Dear Kitty Bhabhi, mera naam Puku hai. Mujhe aapki muskurahat bilkul pasand aayi — bilkul meri favorite toffee jaisi.</div></div>
-<div class="slide"><div class="typing">Bhai (Omkar) ke saath aap bohot achchi lagti ho. Happy New Year, Bhabhi! Lots of love from Puku.</div></div>
-<div class="slide"><div class="typing">Happy New Year Kitty 🎆 May our story sparkle brighter than fireworks!</div></div>
-
-<!-- Fireworks -->
-<div class="fireworks" id="fireworks"><canvas id="canvas"></canvas></div>
-
-<!-- Final proposal -->
-<div class="proposal" id="proposal">
-  <img src="https://via.placeholder.com/250x350?text=Man+on+Knee+with+Bouquet" alt="Proposal">
-  <h1>Kitty, I love you 💍🌹</h1>
+<div class="slide active">
+  <div class="typing">Kitty... every ledger balances when you smile 💖</div>
+  <img class="gif" src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" alt="Cute cat gif">
+  <button onclick="nextSlide()">Next ➡️</button>
 </div>
 
-<audio id="bgmusic" autoplay loop>
+<div class="slide">
+  <div class="typing">In the audit of my heart, you’re the only true & fair view 🌹</div>
+  <img class="gif" src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif" alt="Love gif">
+  <button onclick="nextSlide()">Next ➡️</button>
+</div>
+
+<div class="slide">
+  <div class="typing">Your voice is music, your eyes are heaven... I’m lost in them 🎶</div>
+  <img class="gif" src="https://media.giphy.com/media/3o6Zt481isNVuQI1l6/giphy.gif" alt="Music gif">
+  <button onclick="nextSlide()">Next ➡️</button>
+</div>
+
+<div class="slide">
+  <div class="typing">Suhaana, ek januwari ki subah hai, hawa mein nayi umeedein hain, aur mere dil mein tum...</div>
+  <img class="gif" src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" alt="Bollywood gif">
+  <button onclick="nextSlide()">Next ➡️</button>
+</div>
+
+<div class="slide">
+  <div class="typing">Dear Kitty Bhabhi, mera naam Puku hai. Mujhe aapki muskurahat bilkul pasand aayi 😍</div>
+  <img class="gif" src="https://media.giphy.com/media/26AHONQ79FdWZhAI0/giphy.gif" alt="Cute kid gif">
+  <button onclick="nextSlide()">Next ➡️</button>
+</div>
+
+<div class="slide">
+  <div class="typing">Happy New Year Kitty 🎆 May our story sparkle brighter than fireworks!</div>
+  <button onclick="showFireworks()">Celebrate 🎇</button>
+</div>
+
+<!-- Proposal with Yes/No -->
+<div class="slide" id="proposalSlide">
+  <h1>Kitty, I love you 💍🌹</h1>
+  <div class="typing">Will you be my girlfriend? (Trial Balance of Love: Debit = Omkar, Credit = Kitty)</div>
+  <div>
+    <button onclick="yesAnswer()">Yes ✅</button>
+    <button onclick="noAnswer()">No ❌</button>
+  </div>
+</div>
+
+<!-- Fireworks celebration -->
+<div class="fireworks" id="fireworks"><canvas id="canvas"></canvas></div>
+
+<!-- No answer slide -->
+<div class="slide" id="noSlide">
+  <div class="typing">Baby maan jao… kitna bhao kha rhi ho 😘</div>
+  <img class="gif" src="https://media.giphy.com/media/3o7abKhOpu0NwenH3O/giphy.gif" alt="Funny gif">
+</div>
+
+<!-- Music -->
+<audio id="bgmusic" loop>
   <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
 </audio>
+<button id="playMusicBtn" style="position:absolute;bottom:20px;left:50%;transform:translateX(-50%);
+background:#ff5678;color:#fff;border:none;padding:12px 20px;border-radius:8px;cursor:pointer;">
+  Play Music 🎵
+</button>
 
 <script>
+const music = document.getElementById("bgmusic");
+document.getElementById("playMusicBtn").addEventListener("click", () => {
+  music.play();
+  document.getElementById("playMusicBtn").style.display = "none";
+});
+
 let current=0;
 const slides=document.querySelectorAll('.slide');
 function nextSlide(){
@@ -82,45 +131,53 @@ function nextSlide(){
   current++;
   if(current<slides.length){
     slides[current].classList.add('active');
-    setTimeout(nextSlide,7000);
-  } else {
-    document.getElementById('fireworks').style.display='block';
-    launchFireworks();
-    setTimeout(()=>{
-      document.getElementById('fireworks').style.display='none';
-      document.getElementById('proposal').style.display='flex';
-    },6000);
   }
 }
-setTimeout(nextSlide,7000);
 
-// Fireworks
+function showFireworks(){
+  slides[current].classList.remove('active');
+  document.getElementById('fireworks').style.display='block';
+  launchFireworks();
+  setTimeout(()=>{
+    document.getElementById('fireworks').style.display='none';
+    document.getElementById('proposalSlide').classList.add('active');
+  },6000);
+}
+
+// YES answer → fireworks celebration with cat gif
+function yesAnswer(){
+  document.getElementById('proposalSlide').classList.remove('active');
+  document.getElementById('fireworks').style.display='block';
+  launchFireworks();
+  const catCelebration = document.createElement("img");
+  catCelebration.src="https://media.giphy.com/media/13borq7Zo2kulO/giphy.gif";
+  catCelebration.className="gif";
+  document.body.appendChild(catCelebration);
+  setTimeout(()=>{
+    document.getElementById('fireworks').style.display='none';
+    alert("Yay Kitty! You said YES ❤️🎆 Our love story just got its happiest chapter!");
+  },6000);
+}
+
+// NO answer → playful slide
+function noAnswer(){
+  document.getElementById('proposalSlide').classList.remove('active');
+  document.getElementById('noSlide').classList.add('active');
+}
+
+// Fireworks with sound
 function launchFireworks(){
   const canvas=document.getElementById('canvas');
   const ctx=canvas.getContext('2d');
   canvas.width=window.innerWidth; canvas.height=window.innerHeight;
   let particles=[];
+  const crackSound=new Audio("https://www.soundjay.com/mechanical/sounds/firework-explosion-1.mp3");
   function createFirework(){
     let x=Math.random()*canvas.width;
     let y=Math.random()*canvas.height/2;
+    crackSound.play();
     for(let i=0;i<100;i++){
       particles.push({x:x,y:y,vx:Math.cos(i)*Math.random()*3,vy:Math.sin(i)*Math.random()*3,life:100});
     }
   }
   function draw(){
-    ctx.fillStyle="rgba(0,0,0,0.2)";
-    ctx.fillRect(0,0,canvas.width,canvas.height);
-    particles.forEach((p,i)=>{
-      ctx.fillStyle="hsl("+Math.random()*360+",100%,50%)";
-      ctx.fillRect(p.x,p.y,2,2);
-      p.x+=p.vx; p.y+=p.vy; p.life--;
-      if(p.life<=0) particles.splice(i,1);
-    });
-    requestAnimationFrame(draw);
-  }
-  setInterval(createFirework,700);
-  draw();
-}
-</script>
-</body>
-</html>
